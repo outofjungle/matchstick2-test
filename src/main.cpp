@@ -45,8 +45,6 @@ void update_brightness(bool update)
     {
         brightness_index = (brightness_index + 1) % 8;
 
-        Serial.printf("current index = %d\n", brightness_index);
-
         FastLED.setBrightness(brightness[brightness_index]);
         fill_solid(ch1, LED_LENGTH, CRGB::White);
         fill_solid(ch2, LED_LENGTH, CRGB::White);
