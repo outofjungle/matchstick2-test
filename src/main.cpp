@@ -9,7 +9,7 @@
 #define CH3_PIN 19
 #define CH4_PIN 25
 
-#define LED_LENGTH 50
+#define LED_LENGTH 200
 
 CRGB ch1[LED_LENGTH];
 CRGB ch2[LED_LENGTH];
@@ -46,9 +46,9 @@ void update_brightness(bool update)
         brightness_index = (brightness_index + 1) % 8;
 
         FastLED.setBrightness(brightness[brightness_index]);
-        fill_solid(ch1, LED_LENGTH, CRGB::White);
-        fill_solid(ch2, LED_LENGTH, CRGB::White);
-        fill_solid(ch3, LED_LENGTH, CRGB::White);
+        fill_solid(ch1, LED_LENGTH, CRGB::Red);
+        fill_solid(ch2, LED_LENGTH, CRGB::Green);
+        fill_solid(ch3, LED_LENGTH, CRGB::Blue);
         fill_solid(ch4, LED_LENGTH, CRGB::White);
         FastLED.show();
     }
@@ -101,10 +101,10 @@ void setup()
 
     set_low_test_pins();
 
-    FastLED.addLeds<WS2811, CH1_PIN, BGR>(ch1, LED_LENGTH);
-    FastLED.addLeds<WS2811, CH2_PIN, BGR>(ch2, LED_LENGTH);
-    FastLED.addLeds<WS2811, CH3_PIN, BGR>(ch3, LED_LENGTH);
-    FastLED.addLeds<WS2811, CH4_PIN, BGR>(ch4, LED_LENGTH);
+    FastLED.addLeds<WS2811, CH1_PIN, GRB>(ch1, LED_LENGTH);
+    FastLED.addLeds<WS2811, CH2_PIN, GRB>(ch2, LED_LENGTH);
+    FastLED.addLeds<WS2811, CH3_PIN, GRB>(ch3, LED_LENGTH);
+    FastLED.addLeds<WS2811, CH4_PIN, GRB>(ch4, LED_LENGTH);
 
     update_led(true);
     update_brightness(true);
